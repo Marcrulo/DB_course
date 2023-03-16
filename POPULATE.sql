@@ -1,0 +1,4 @@
+### INSERT
+INSERT Dish VALUES
+(0,0,0),
+(0,0,0)
