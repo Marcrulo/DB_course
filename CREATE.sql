@@ -1,7 +1,71 @@
 
+### CREATE DATABASE
 DROP DATABASE IF EXISTS pizzaria;
 CREATE DATABASE pizzaria;
 USE pizzaria;
 
+### DROP TABLES IF EXIST
+DROP TABLE IF EXISTS Dish;
+DROP TABLE IF EXISTS Ingredient;
+DROP TABLE IF EXISTS Recipe;
+DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS Waiter;
+DROP TABLE IF EXISTS Orders;
 
+### CREATE TABLES
+CREATE TABLE Dish
+	(Dish_ID		SMALLINT NOT NULL AUTO_INCREMENT,
+	 Dish_Name		VARCHAR(20),
+	 Price			SMALLINT,
+	 PRIMARY KEY(Dish_ID)
+	);
+
+CREATE TABLE Ingredient
+	(Ingr_Name		VARCHAR(20) NOT NULL,
+	 Attr			VARCHAR(20),
+	 PRIMARY KEY(Ingr_Name)
+	);
+    
+CREATE TABLE Recipe
+	(Ingr_Name		VARCHAR(20) NOT NULL,
+     Dish_ID		SMALLINT NOT NULL AUTO_INCREMENT,
+	 Attr			VARCHAR(20),
+	 PRIMARY KEY(Ingr_Name, DishID),
+     FOREIGN KEY(Ingr_Name) REFERENCES Ingredient(Ingr_Name) ON DELETE CASCADE,
+	 FOREIGN KEY(Dish_ID)   REFERENCES Dish(Dish_ID) ON DELETE CASCADE
+	);
+    
+CREATE TABLE Customer
+	(Table_ID		INT NOT NULL AUTO_INCREMENT,
+	 Start_Time     TIMESTAMP,
+     End_Time		TIMESTAMP,
+	 PRIMARY KEY(Table_ID, Start_Time)
+	);
+    
+CREATE TABLE Waiter
+	(Wait_ID		INT NOT NULL AUTO_INCREMENT,
+	 PRIMARY KEY(Wait_ID)
+	);
+    
+CREATE TABLE Orders
+	(Table_ID		INT NOT NULL,
+     Wait_ID		INT NOT NULL,
+	 Order_Time     TIMESTAMP,
+	 Dish_ID		SMALLINT NOT NULL,
+     Amount			TINYINT NOT NULL DEFAULT 0,
+     
+     PRIMARY KEY(Table_ID, Wait_ID, Order_Time, Dish_ID, Amount),
+     FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE SET NULL,
+     FOREIGN KEY(Wait_ID) REFERENCES Waiter(Wait_ID) ON DELETE SET NULL,
+	 FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE SET NULL
+	);
+    
+
+
+
+    
+    
+    
+    
+    
 
