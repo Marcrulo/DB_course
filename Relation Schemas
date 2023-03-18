@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-18T16:23:59.769Z" agent="5.0 (Windows)" etag="GPuMkqQbLP5BVSuCO_50" version="21.0.6" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-18T16:25:06.069Z" agent="5.0 (Windows)" etag="jNCnlKUv-xAT7J2M-PgP" version="21.0.6" type="github">
   <diagram name="Relation Schemas" id="c14B552_B3FiAOmyDw5p">
-    <mxGraphModel dx="1050" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1750" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -182,6 +182,9 @@
             <mxPoint x="730" y="210" as="sourcePoint" />
             <mxPoint x="780" y="160" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="6JCbyGXcrJAZNtAWMuZ--1" value="&lt;h1&gt;Relation Schemas&lt;br&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="280" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
