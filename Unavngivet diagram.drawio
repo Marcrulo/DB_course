@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-18T16:21:51.745Z" agent="5.0 (Windows)" etag="fBCnhZ7ZyJf4kWP7lVod" version="21.0.6" type="github">
-  <diagram name="Side-1" id="c14B552_B3FiAOmyDw5p">
-    <mxGraphModel dx="1000" dy="505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2023-03-18T16:22:41.793Z" agent="5.0 (Windows)" etag="Ed5y1ZdMNSorf_w4uQ7t" version="21.0.6" type="github">
+  <diagram name="Relation Schemas" id="c14B552_B3FiAOmyDw5p">
+    <mxGraphModel dx="1615" dy="815" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
