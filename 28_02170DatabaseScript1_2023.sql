@@ -84,7 +84,7 @@ CREATE TABLE Order_Drink
     
 CREATE TABLE Serves
 	(Table_ID		INT NOT NULL,
-     Start_Time		TIMESTAMP,
+     Start_Time		VARCHAR(20),#TIMESTAMP,
      Waiter_ID		INT NOT NULL,
 	 PRIMARY KEY(Table_ID, Start_Time, Waiter_ID),
      FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID),# ON DELETE CASCADE,
@@ -93,10 +93,32 @@ CREATE TABLE Serves
     );
 
 
+INSERT Drink VALUES
+(NULL,'San Pellegrino','20','Water');
 
+INSERT Dish VALUES
+(NULL,'Hawaii','69','Pizza');
 
+INSERT Ingredient VALUES
+(NULL, 'Pineapple','5');
 
+INSERT Recipe VALUES
+('1','1');
+
+INSERT Customer VALUES
+('1',CURRENT_TIMESTAMP);
+
+INSERT Waiter VALUES
+(NULL,'Joe',1000);
     
+INSERT Order_Dish VALUES
+('1',CURRENT_TIMESTAMP,'1','1');
+
+INSERT Order_Drink VALUES
+('1',CURRENT_TIMESTAMP,'1','1');
+
+INSERT Serves VALUES
+('1',CURRENT_TIMESTAMP,'1');
     
     
     
