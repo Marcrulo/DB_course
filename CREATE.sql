@@ -30,7 +30,7 @@ CREATE TABLE Recipe
 	(Ingr_Name		VARCHAR(20) NOT NULL,
      Dish_ID		SMALLINT NOT NULL AUTO_INCREMENT,
 	 Attr			VARCHAR(20),
-	 PRIMARY KEY(Ingr_Name, DishID),
+	 PRIMARY KEY(Ingr_Name, Dish_ID),
      FOREIGN KEY(Ingr_Name) REFERENCES Ingredient(Ingr_Name) ON DELETE CASCADE,
 	 FOREIGN KEY(Dish_ID)   REFERENCES Dish(Dish_ID) ON DELETE CASCADE
 	);
@@ -43,21 +43,21 @@ CREATE TABLE Customer
 	);
     
 CREATE TABLE Waiter
-	(Wait_ID		INT NOT NULL AUTO_INCREMENT,
-	 PRIMARY KEY(Wait_ID)
+	(Waiter_ID		INT NOT NULL AUTO_INCREMENT,
+	 PRIMARY KEY(Waiter_ID)
 	);
     
 CREATE TABLE Orders
 	(Table_ID		INT NOT NULL,
-     Wait_ID		INT NOT NULL,
+     Waiter_ID		INT NOT NULL,
 	 Order_Time     TIMESTAMP,
 	 Dish_ID		SMALLINT NOT NULL,
      Amount			TINYINT NOT NULL DEFAULT 0,
      
-     PRIMARY KEY(Table_ID, Wait_ID, Order_Time, Dish_ID, Amount),
-     FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE SET NULL,
-     FOREIGN KEY(Wait_ID) REFERENCES Waiter(Wait_ID) ON DELETE SET NULL,
-	 FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE SET NULL
+     PRIMARY KEY(Table_ID, Waiter_ID, Order_Time, Dish_ID, Amount),
+     FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE CASCADE,
+     FOREIGN KEY(Waiter_ID) REFERENCES Waiter(Waiter_ID) ON DELETE CASCADE,
+	 FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE CASCADE
 	);
     
 
