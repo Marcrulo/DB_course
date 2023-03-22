@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-22T11:39:40.764Z" agent="5.0 (Windows)" etag="y1I0GOg9Y7ujP12j3AEH" version="21.0.10" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-03-22T11:41:01.269Z" agent="5.0 (Windows)" etag="X7rqKavy1B8bdG4wnuYJ" version="21.0.10" type="github" pages="2">
   <diagram name="Relation Schemas" id="c14B552_B3FiAOmyDw5p">
     <mxGraphModel dx="493" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -190,7 +190,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="9DGl2Nh18Xyx6P6LAHNb" name="RettetAfT">
-    <mxGraphModel dx="1167" dy="589" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1000" dy="505" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -218,7 +218,7 @@
         <mxCell id="OHF1xssqdLsTOOyTSI1T-8" value="&lt;u&gt;Start_Time&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-6">
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OHF1xssqdLsTOOyTSI1T-9" value="Waiter_ID [NOT NULL]" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-6">
+        <mxCell id="OHF1xssqdLsTOOyTSI1T-9" value="Waiter_ID" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-6">
           <mxGeometry y="90" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="OHF1xssqdLsTOOyTSI1T-10" value="&lt;b&gt;Waiter&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;" vertex="1" parent="1">
@@ -354,7 +354,7 @@
         <mxCell id="OHF1xssqdLsTOOyTSI1T-41" value="&lt;u&gt;Dish_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-40">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OHF1xssqdLsTOOyTSI1T-42" value="&lt;u&gt;Ingredient_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-40">
+        <mxCell id="OHF1xssqdLsTOOyTSI1T-42" value="&lt;u&gt;Ingr_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="OHF1xssqdLsTOOyTSI1T-40">
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="OHF1xssqdLsTOOyTSI1T-43" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="OHF1xssqdLsTOOyTSI1T-42" target="OHF1xssqdLsTOOyTSI1T-15">
@@ -374,7 +374,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="OHF1xssqdLsTOOyTSI1T-45" value="&lt;h1&gt;Relation Schemas&lt;br&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="60" y="140" width="280" height="120" as="geometry" />
+          <mxGeometry x="60" y="707" width="280" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
