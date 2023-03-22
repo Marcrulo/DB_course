@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-22T11:04:51.373Z" agent="5.0 (Windows)" etag="LodY6W2jzBPt4uSga-up" version="21.0.10" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-03-22T11:24:37.262Z" agent="5.0 (Windows)" etag="7MoRxoFjwcGBVwnCM709" version="21.0.10" type="github" pages="2">
   <diagram id="FJVTKk-_OP37dNf6MDA-" name="Entity Relationship">
     <mxGraphModel dx="2669" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -164,11 +164,11 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CP8eh64QYhYG8IBPMnXl" name="RettetAfT">
-    <mxGraphModel dx="1621" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1055" dy="881" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-1" value="&lt;b&gt;Dish&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-1" value="&lt;b&gt;Dish&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;strokeColor=#23445d;" vertex="1" parent="1">
           <mxGeometry x="275" y="180" width="140" height="150" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-2" value="&lt;u&gt;Dish_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-1">
@@ -183,7 +183,7 @@
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-5" value="Dish_Type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-1">
           <mxGeometry y="120" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-6" value="&lt;b&gt;Customers&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-6" value="&lt;b&gt;Customers&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;" vertex="1" parent="1">
           <mxGeometry x="275" y="469" width="140" height="90" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-7" value="&lt;u&gt;Table_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-6">
@@ -192,13 +192,13 @@
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-8" value="&lt;u&gt;Start_Time&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-6">
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-9" value="&lt;b&gt;Orders_Dish&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-9" value="&lt;b&gt;Orders_Dish&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D3EDF0;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="300" y="360" width="90" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-10" value="&lt;b&gt;Serves&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-10" value="&lt;b&gt;Serves&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D3EDF0;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="463" y="474" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-11" value="&lt;b&gt;Waiter&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-11" value="&lt;b&gt;Waiter&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;" vertex="1" parent="1">
           <mxGeometry x="585" y="451" width="140" height="120" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-12" value="&lt;u&gt;Waiter_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-11">
@@ -210,11 +210,13 @@
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-14" value="Salary" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-11">
           <mxGeometry y="90" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-15" value="&lt;b&gt;Recipe&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-15" value="&lt;b&gt;Recipe&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D3EDF0;strokeColor=#10739e;" vertex="1" parent="1">
           <mxGeometry x="464" y="215" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-16" value="&lt;b&gt;Ingredient&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="585" y="193" width="140" height="120" as="geometry" />
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-16" value="&lt;b&gt;Ingredient&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;strokeColor=#10739e;" vertex="1" parent="1">
+          <mxGeometry x="585" y="193" width="140" height="120" as="geometry">
+            <mxRectangle x="585" y="193" width="93" height="30" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-17" value="&lt;u&gt;Ingr_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-16">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
@@ -261,7 +263,7 @@
             <mxPoint x="693" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-26" value="&lt;b&gt;Order_Drink&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-26" value="&lt;b&gt;Order_Drink&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#D3EDF0;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="143" y="474" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-27" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Tq-dfUkRUzm8UdVTHRff-26" target="Tq-dfUkRUzm8UdVTHRff-7">
@@ -276,7 +278,7 @@
             <mxPoint x="170" y="600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Tq-dfUkRUzm8UdVTHRff-29" value="&lt;b&gt;Drink&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Tq-dfUkRUzm8UdVTHRff-29" value="&lt;b&gt;Drink&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#9CC3D4;" vertex="1" parent="1">
           <mxGeometry x="-40" y="439" width="140" height="150" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-30" value="&lt;u&gt;Drink_ID&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Tq-dfUkRUzm8UdVTHRff-29">
@@ -292,16 +294,16 @@
           <mxGeometry y="120" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-34" value="&lt;div&gt;Many2Many:&lt;/div&gt;&lt;div&gt;A table of customers can order many dishes. But it is also possible to order zero dishes. Hence we do not draw the double line between the relation and customers.&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="283" width="217" height="30" as="geometry" />
+          <mxGeometry x="-426" y="-117" width="217" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-35" value="&lt;div&gt;Many2Many:&lt;/div&gt;&lt;div&gt;A table of customers can order many drinks. But it is also possible to order zero drinks. Hence we do not draw the double line between the relation and customers.&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-100" y="630" width="217" height="30" as="geometry" />
+          <mxGeometry x="-562" y="630" width="217" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-36" value="&lt;div&gt;Many2Many:&lt;/div&gt;&lt;div&gt;All dishes are made with a combination of some ingredients. It is possible for an ingredient to not be included in a dish.&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="395.5" y="130" width="217" height="30" as="geometry" />
+          <mxGeometry x="207" y="-160" width="217" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-37" value="&lt;div&gt;Many2One:&lt;/div&gt;&lt;div&gt;A table of customers must be served by one and only one waiter. But it is possible for a waiter to serve multiple tables with customers.&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="390" y="600" width="217" height="30" as="geometry" />
+          <mxGeometry x="463" y="743" width="217" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-38" value="Quantity_Dish" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="424" y="370" width="120" height="60" as="geometry" />
@@ -322,7 +324,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Tq-dfUkRUzm8UdVTHRff-42" value="&lt;h1&gt;Entity Relationship Diagrams&lt;br&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-320" y="150" width="390" height="120" as="geometry" />
+          <mxGeometry x="-758" y="193" width="390" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
