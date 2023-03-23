@@ -33,8 +33,9 @@ WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID
 ORDER BY Dish_ID;
 
 
-SELECT * FROM Customer
-WHERE Table_ID = 1 and Start_Time = '2023-03-23 11:10:21';
+SELECT SUM(Price)
+FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish
+WHERE Table_ID = 1 and Start_Time = '2023-03-23 11:59:50' and Order_Time = '2023-03-23 11:59:50';
 
 
 # 7) SQL PROGRAMMING: 
@@ -43,12 +44,15 @@ DELIMITER //
 CREATE FUNCTION Total_Price(TabID INT, stTime TIMESTAMP) RETURNS INT
 BEGIN
 	DECLARE PriceSum INT;
-    SELECT Dish_ID INTO PriceSum 
-    FROM Order_Dish;
-    
+    SELECT SUM(Price) INTO PriceSum 
+    FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish
+    WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
+
     RETURN PriceSum;
 END //
 DELIMITER ;
+SELECT Total_Price(1, '2023-03-23 11:59:50');
+
 
 # procedures
 
