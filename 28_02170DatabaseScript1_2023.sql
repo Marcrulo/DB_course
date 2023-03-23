@@ -35,7 +35,7 @@ CREATE TABLE Dish
 CREATE TABLE Ingredient
 	(Ingr_ID		SMALLINT NOT NULL AUTO_INCREMENT,
 	 Ingr_Name		VARCHAR(20),
-	 Cost			INT,
+	 Cost			FLOAT,
 	 PRIMARY KEY(Ingr_ID)
 	);
     
@@ -92,6 +92,13 @@ CREATE TABLE Serves
     );
 
 
+CREATE VIEW Non_Admin_Waiter AS 
+SELECT Waiter_ID, Waiter_Name 
+FROM Waiter;
+
+
+
+
 INSERT Drink VALUES
 ('1','San Pellegrino','20','Water'),
 ('2','Coca Cola','22','Soda'),
@@ -144,12 +151,12 @@ INSERT Customer VALUES
 ('42',CURRENT_TIMESTAMP);
 
 INSERT Waiter VALUES
-(NULL,'Joe',1000),
-(NULL,'Candice',1100),
-(NULL,'Steve',1100);
+(NULL,'Joe',33000),
+(NULL,'Candice',20000),
+(NULL,'Steve',25000);
     
 INSERT Order_Dish VALUES
-('1',CURRENT_TIMESTAMP,'0','1'),
+('1',CURRENT_TIMESTAMP,'0',DEFAULT),
 ('1',CURRENT_TIMESTAMP,'4','2'),
 ('1',CURRENT_TIMESTAMP,'151','3'),
 ('5',CURRENT_TIMESTAMP,'10','1'),
