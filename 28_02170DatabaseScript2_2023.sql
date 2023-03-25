@@ -33,7 +33,7 @@ WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID
 ORDER BY Dish_ID;
 
 
-
+Drop function Total_Price;
 
 # 7) SQL PROGRAMMING - Function: Customer bill
 DELIMITER //
@@ -42,17 +42,18 @@ BEGIN
 	DECLARE PriceSumDish INT;
     DECLARE PriceSumDrink INT;
     
-    SELECT SUM(Price) INTO PriceSumDish
+    SELECT SUM(Price* Quantity_Dish) INTO PriceSumDish
     FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish 
     WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
     
-    SELECT SUM(Price) INTO PriceSumDrink
+    SELECT SUM(Price*Quantity_Drink) INTO PriceSumDrink
 	FROM Customer NATURAL JOIN Order_Drink NATURAL JOIN Drink
-	WHERE Table_ID = 1 and Start_Time = stTime and Order_Time = stTime;
+	WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
 
     RETURN PriceSumDish + PriceSumDrink;
 END //
 DELIMITER ;
+
 SELECT Total_Price(1, '2023-03-25 16:14:46');
 
 
@@ -93,3 +94,27 @@ END;
 
 # 8) SQL TABLE MODIFICATIONS: Remove pricy Dishes from menu
 DELETE FROM Dish WHERE Price > 75;
+
+
+SELECT coalesce(ODR.Table_ID, ODI.Table_ID), coalesce(ODR.Order_Time, ODI.Order_Time) , coalesce(ODR.Drink_ID, ODI.Dish_ID) as Item_ID
+FROM Order_Drink ODR
+JOIN Order_Dish ODI
+WHERE ODR.Table_ID = 1;
+
+
+SELECT *
+FROM Order_Drink ODR
+JOIN Order_Dish ODI
+WHERE ODR.Table_ID = 1;
+
+SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink 
+FROM Order_Drink OD
+JOIN Drink D on OD.Drink_ID = D.Drink_ID
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46'
+UNION 
+SELECT Table_ID, Order_Time, OD.Dish_ID as Item_ID, Quantity_Dish as Quantity, D.Dish_Name as Name, D.Price, D.Price*Quantity_Dish
+FROM Order_Dish as OD
+JOIN Dish D on OD.Dish_ID = D.Dish_ID
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
+
+SELECT Total_Price(1, '2023-03-25 16:14:46');
