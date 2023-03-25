@@ -33,33 +33,47 @@ WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID
 ORDER BY Dish_ID;
 
 
-SELECT SUM(Price)
-FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish
-WHERE Table_ID = 1 and Start_Time = '2023-03-25 16:05:53' and Order_Time = '2023-03-25 16:05:53';
 
 
 # 7) SQL PROGRAMMING - Function: Customer bill
 DELIMITER //
 CREATE FUNCTION Total_Price(TabID INT, stTime TIMESTAMP) RETURNS INT
 BEGIN
-	DECLARE PriceSum INT;
-    SELECT SUM(Price) INTO PriceSum 
-    FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish
+	DECLARE PriceSumDish INT;
+    DECLARE PriceSumDrink INT;
+    
+    SELECT SUM(Price) INTO PriceSumDish
+    FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish 
     WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
+    
+    SELECT SUM(Price) INTO PriceSumDrink
+	FROM Customer NATURAL JOIN Order_Drink NATURAL JOIN Drink
+	WHERE Table_ID = 1 and Start_Time = stTime and Order_Time = stTime;
 
-    RETURN PriceSum;
+    RETURN PriceSumDish + PriceSumDrink;
 END //
 DELIMITER ;
-SELECT Total_Price(1, '2023-03-23 11:59:50');
+SELECT Total_Price(1, '2023-03-25 16:14:46');
 
 
-# 7) SQL PROGRAMMING - Procedure
-# given a dish id,
-# output the dish ingredients
+# 7) SQL PROGRAMMING - Procedure: Given a dish, output its ingredients
+DELIMITER //
+CREATE PROCEDURE Ingredients_From_Dish(IN DID INT)
+BEGIN
+	SELECT Dish_Name, Ingr_Name 
+	FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish 
+	WHERE Dish_ID = DID AND Recipe.Ingr_ID = Ingredient.Ingr_ID 
+	ORDER BY Dish_ID;
+END //
+DELIMITER ;
+CALL Ingredients_From_Dish(10);
+
+SELECT Table_ID, Drink_Name, Drink_Type
+FROM Order_Drink NATURAL JOIN Drink;
+
 
 # 7) SQL PROGRAMMING - Trigger
-# if insert order_dish, check for beef, shrimp and nuggets (meat, basically)
-# print out "warning" if that's the case
+
 
 
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
@@ -80,4 +94,5 @@ THEN Cost*1.1
 ELSE Cost*1.08
 END;
 
-# 8) SQL TABLE MODIFICATIONS: Remove Dish from menu
+# 8) SQL TABLE MODIFICATIONS: Remove pricy Dishes from menu
+DELETE FROM Dish WHERE Price > 75;

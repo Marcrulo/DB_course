@@ -17,54 +17,54 @@ DROP TABLE IF EXISTS Serves;
 
 ### CREATE TABLES
 CREATE TABLE Drink
-	(Drink_ID		SMALLINT NOT NULL AUTO_INCREMENT,
+	(Drink_ID		INT AUTO_INCREMENT,
 	 Drink_Name		VARCHAR(20),
-	 Price			SMALLINT,
+	 Price			INT,
      Drink_Type		ENUM('Soda','Alcoholic','Coffee','Water'),	
 	 PRIMARY KEY(Drink_ID)
 	);
 
 CREATE TABLE Dish
-	(Dish_ID		SMALLINT NOT NULL, 
+	(Dish_ID		INT AUTO_INCREMENT, 
 	 Dish_Name		VARCHAR(20),
-	 Price			SMALLINT,
+	 Price			INT,
      Dish_Type		ENUM('Pizza','Burger','Sides'),
 	 PRIMARY KEY(Dish_ID)
 	);
 
 CREATE TABLE Ingredient
-	(Ingr_ID		SMALLINT NOT NULL AUTO_INCREMENT,
+	(Ingr_ID		INT AUTO_INCREMENT,
 	 Ingr_Name		VARCHAR(20),
 	 Cost			FLOAT,
 	 PRIMARY KEY(Ingr_ID)
 	);
     
 CREATE TABLE Recipe
-	(Ingr_ID		SMALLINT NOT NULL,
-     Dish_ID		SMALLINT NOT NULL,
+	(Ingr_ID		INT,
+     Dish_ID		INT,
 	 PRIMARY KEY(Ingr_ID, Dish_ID),
      FOREIGN KEY(Ingr_ID) REFERENCES Ingredient(Ingr_ID) ON DELETE CASCADE,
 	 FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE CASCADE
 	);
     
 CREATE TABLE Customer
-	(Table_ID		INT NOT NULL AUTO_INCREMENT,
+	(Table_ID		INT AUTO_INCREMENT,
 	 Start_Time     TIMESTAMP,
 	 PRIMARY KEY(Table_ID, Start_Time)
 	);
     
 CREATE TABLE Waiter
-	(Waiter_ID		INT NOT NULL AUTO_INCREMENT,
+	(Waiter_ID		INT AUTO_INCREMENT,
      Waiter_Name	VARCHAR(50),
      Salary			INT,
 	 PRIMARY KEY(Waiter_ID)
 	);
     
 CREATE TABLE Order_Dish
-	(Table_ID		INT NOT NULL,
+	(Table_ID		INT ,
 	 Order_Time     TIMESTAMP,
-	 Dish_ID		SMALLINT NOT NULL,
-     Quantity		TINYINT NOT NULL DEFAULT 1,
+	 Dish_ID		INT,
+     Quantity_Dish  INT NOT NULL DEFAULT 1,
      
      PRIMARY KEY(Table_ID, Order_Time, Dish_ID, Quantity),
      FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE CASCADE,
@@ -72,10 +72,10 @@ CREATE TABLE Order_Dish
 	);
 
 CREATE TABLE Order_Drink
-	(Table_ID		INT NOT NULL,
+	(Table_ID		INT,
 	 Order_Time     TIMESTAMP,
-	 Drink_ID		SMALLINT NOT NULL,
-     Quantity		TINYINT NOT NULL DEFAULT 1,
+	 Drink_ID		INT,
+     Quantity_Drink	INT NOT NULL DEFAULT 1,
      
      PRIMARY KEY(Table_ID, Order_Time, Drink_ID, Quantity),
      FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE CASCADE,
@@ -83,9 +83,9 @@ CREATE TABLE Order_Drink
 	);
     
 CREATE TABLE Serves
-	(Table_ID		INT NOT NULL,
+	(Table_ID		INT,
      Start_Time		TIMESTAMP,
-     Waiter_ID		INT NOT NULL,
+     Waiter_ID		INT,
 	 PRIMARY KEY(Table_ID, Start_Time, Waiter_ID),
      FOREIGN KEY(Table_ID, Start_Time) REFERENCES Customer(Table_ID,Start_Time) ON DELETE CASCADE,
      FOREIGN KEY(Waiter_ID) REFERENCES Waiter(Waiter_ID) ON DELETE CASCADE
@@ -146,10 +146,10 @@ INSERT Recipe VALUES
 ('12','102'),('8','102'),('13','102'),('15','102'),('2','102'),('14','102');
 
 INSERT Customer VALUES
-('1',CURRENT_TIMESTAMP),
+('1','2023-03-25 16:14:46'),
 ('1', '2022-03-23 11:10:21'),
-('5',CURRENT_TIMESTAMP),
-('42',CURRENT_TIMESTAMP);
+('5','2023-03-25 16:14:46'),
+('42','2023-03-25 16:14:46');
 
 INSERT Waiter VALUES
 (NULL,'Joe',33000),
@@ -157,28 +157,28 @@ INSERT Waiter VALUES
 (NULL,'Steve',25000);
     
 INSERT Order_Dish VALUES
-('1',CURRENT_TIMESTAMP,'0',DEFAULT),
-('1',CURRENT_TIMESTAMP,'4','2'),
+('1','2023-03-25 16:14:46','0',DEFAULT),
+('1','2023-03-25 16:14:46','4','2'),
 ('1','2022-03-23 11:10:21', '4','2'),
-('1',CURRENT_TIMESTAMP,'151','3'),
-('5',CURRENT_TIMESTAMP,'10','1'),
-('5',CURRENT_TIMESTAMP,'11','2'),
-('5',CURRENT_TIMESTAMP,'4','1'),
-('42',CURRENT_TIMESTAMP,'102','5');
+('1','2023-03-25 16:14:46','151','3'),
+('5','2023-03-25 16:14:46','10','1'),
+('5','2023-03-25 16:14:46','11','2'),
+('5','2023-03-25 16:14:46','4','1'),
+('42','2023-03-25 16:14:46','102','5');
 
 INSERT Order_Drink VALUES
-('1',CURRENT_TIMESTAMP,'1','2'),
-('1',CURRENT_TIMESTAMP,'2','3'),
-('5',CURRENT_TIMESTAMP,'3','1'),
-('5',CURRENT_TIMESTAMP,'5','2'),
-('42',CURRENT_TIMESTAMP,'7','3'),
-('42',CURRENT_TIMESTAMP,'6','2'),
+('1','2023-03-25 16:14:46','1','2'),
+('1','2023-03-25 16:14:46','2','3'),
+('5','2023-03-25 16:14:46','3','1'),
+('5','2023-03-25 16:14:46','5','2'),
+('42','2023-03-25 16:14:46','7','3'),
+('42','2023-03-25 16:14:46','6','2'),
 ('42',CURRENT_TIMESTAMP,'4','1');
 
 INSERT Serves VALUES
-('1',CURRENT_TIMESTAMP,'1'),
-('5',CURRENT_TIMESTAMP,'2'),
-('42',CURRENT_TIMESTAMP,'3');
+('1','2023-03-25 16:14:46','1'),
+('5','2023-03-25 16:14:46','2'),
+('42','2023-03-25 16:14:46','3');
 
     
     
