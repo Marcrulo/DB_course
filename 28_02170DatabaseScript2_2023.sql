@@ -9,7 +9,7 @@ SELECT * FROM Recipe;
 SELECT * FROM Serves;
 SELECT * FROM Waiter;
 
-# 6) SQL DATA QUERIES: Order drinks by price
+# 6) SQL DATA QUERIES: Sort drinks by price
 SELECT Drink_Name, Price FROM Drink ORDER BY Price;
 
 # 6) SQL DATA QUERIES: Popularity of dishes
@@ -35,11 +35,10 @@ ORDER BY Dish_ID;
 
 SELECT SUM(Price)
 FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish
-WHERE Table_ID = 1 and Start_Time = '2023-03-23 11:59:50' and Order_Time = '2023-03-23 11:59:50';
+WHERE Table_ID = 1 and Start_Time = '2023-03-25 16:05:53' and Order_Time = '2023-03-25 16:05:53';
 
 
-# 7) SQL PROGRAMMING: 
-# Function: Customer bill
+# 7) SQL PROGRAMMING - Function: Customer bill
 DELIMITER //
 CREATE FUNCTION Total_Price(TabID INT, stTime TIMESTAMP) RETURNS INT
 BEGIN
@@ -54,12 +53,13 @@ DELIMITER ;
 SELECT Total_Price(1, '2023-03-23 11:59:50');
 
 
-# procedures
+# 7) SQL PROGRAMMING - Procedure
+# given a dish id,
+# output the dish ingredients
 
-# triggers
-
-# (event)
-
+# 7) SQL PROGRAMMING - Trigger
+# if insert order_dish, check for beef, shrimp and nuggets (meat, basically)
+# print out "warning" if that's the case
 
 
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
@@ -79,3 +79,5 @@ WHEN Cost <= 10
 THEN Cost*1.1
 ELSE Cost*1.08
 END;
+
+# 8) SQL TABLE MODIFICATIONS: Remove Dish from menu
