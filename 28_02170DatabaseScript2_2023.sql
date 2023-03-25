@@ -13,13 +13,13 @@ SELECT * FROM Waiter;
 SELECT Drink_Name, Price FROM Drink ORDER BY Price;
 
 # 6) SQL DATA QUERIES: Popularity of dishes
-SELECT Dish_ID, Dish_Name, 
-	(SELECT SUM(Quantity) 
-	 FROM Order_Dish 
+SELECT Dish_ID, Dish_Name,
+	(SELECT SUM(Quantity)
+	 FROM Order_Dish
 	 WHERE Order_Dish.Dish_ID = Dish.Dish_ID) as Quantity_Sold
 FROM Dish
 ORDER BY Quantity_Sold DESC;
- 
+
 # 6) SQL DATA QUERIES: Drink type popularity
 SELECT Drink_Type,SUM(Quantity) as Quantity_Sold
 FROM Order_Drink  NATURAL JOIN Drink
@@ -27,28 +27,35 @@ GROUP BY Drink_Type
 ORDER BY Quantity_Sold DESC;
 
 # 6) SQL DATA QUERIES: Get dish ingredients
-SELECT Dish_Name, Ingr_Name 
-FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish 
-WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID 
+SELECT Dish_Name, Ingr_Name
+FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish
+WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID
 ORDER BY Dish_ID;
 
+### TEST ###
+SELECT Dish_Name, Quantity_Dish as num, Quantity_Dish*Price as subtotal
+FROM Order_Dish NATURAL JOIN Dish
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
 
-Drop function Total_Price;
+SELECT Drink_Name, Quantity_Drink as num, Quantity_Drink*Price as subtotal
+FROM Order_Drink NATURAL JOIN Drink
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
+
 
 # 7) SQL PROGRAMMING - Function: Customer bill
 DELIMITER //
-CREATE FUNCTION Total_Price(TabID INT, stTime TIMESTAMP) RETURNS INT
+CREATE FUNCTION Total_Price(TabID INT, ordTime TIMESTAMP) RETURNS INT
 BEGIN
 	DECLARE PriceSumDish INT;
     DECLARE PriceSumDrink INT;
-    
-    SELECT SUM(Price* Quantity_Dish) INTO PriceSumDish
-    FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish 
-    WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
-    
+
+    SELECT SUM(Price*Quantity_Dish) INTO PriceSumDish
+    FROM Order_Dish NATURAL JOIN Dish
+    WHERE Table_ID = TabID and Order_Time = ordTime;
+
     SELECT SUM(Price*Quantity_Drink) INTO PriceSumDrink
-	FROM Customer NATURAL JOIN Order_Drink NATURAL JOIN Drink
-	WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
+	FROM Order_Drink NATURAL JOIN Drink
+	WHERE Table_ID = TabID and Order_Time = ordTime;
 
     RETURN PriceSumDish + PriceSumDrink;
 END //
@@ -61,9 +68,9 @@ SELECT Total_Price(1, '2023-03-25 16:14:46');
 DELIMITER //
 CREATE PROCEDURE Ingredients_From_Dish(IN DID INT)
 BEGIN
-	SELECT Dish_Name, Ingr_Name 
-	FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish 
-	WHERE Dish_ID = DID AND Recipe.Ingr_ID = Ingredient.Ingr_ID 
+	SELECT Dish_Name, Ingr_Name
+	FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish
+	WHERE Dish_ID = DID AND Recipe.Ingr_ID = Ingredient.Ingr_ID
 	ORDER BY Dish_ID;
 END //
 DELIMITER ;
@@ -75,7 +82,7 @@ CALL Ingredients_From_Dish(10);
 
 
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
-UPDATE Waiter SET Salary = 
+UPDATE Waiter SET Salary =
 CASE
 WHEN Salary <= 25000
 THEN Salary*1.05
@@ -85,7 +92,7 @@ ELSE Salary*0.98
 END;
 
 # 8) SQL TABLE MODIFICATIONS: Inflation
-UPDATE Ingredient SET Cost = 
+UPDATE Ingredient SET Cost =
 CASE
 WHEN Cost <= 10
 THEN Cost*1.1
@@ -107,11 +114,11 @@ FROM Order_Drink ODR
 JOIN Order_Dish ODI
 WHERE ODR.Table_ID = 1;
 
-SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink 
+SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink
 FROM Order_Drink OD
 JOIN Drink D on OD.Drink_ID = D.Drink_ID
 WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46'
-UNION 
+UNION
 SELECT Table_ID, Order_Time, OD.Dish_ID as Item_ID, Quantity_Dish as Quantity, D.Dish_Name as Name, D.Price, D.Price*Quantity_Dish
 FROM Order_Dish as OD
 JOIN Dish D on OD.Dish_ID = D.Dish_ID
