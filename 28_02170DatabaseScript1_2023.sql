@@ -66,7 +66,7 @@ CREATE TABLE Order_Dish
 	 Dish_ID		INT,
      Quantity_Dish  INT NOT NULL DEFAULT 1,
      
-     PRIMARY KEY(Table_ID, Order_Time, Dish_ID, Quantity),
+     PRIMARY KEY(Table_ID, Order_Time, Dish_ID, Quantity_Dish),
      FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE CASCADE,
      FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE CASCADE
 	);
@@ -77,7 +77,7 @@ CREATE TABLE Order_Drink
 	 Drink_ID		INT,
      Quantity_Drink	INT NOT NULL DEFAULT 1,
      
-     PRIMARY KEY(Table_ID, Order_Time, Drink_ID, Quantity),
+     PRIMARY KEY(Table_ID, Order_Time, Drink_ID, Quantity_Drink),
      FOREIGN KEY(Table_ID) REFERENCES Customer(Table_ID) ON DELETE CASCADE,
      FOREIGN KEY(Drink_ID) REFERENCES Drink(Drink_ID) ON DELETE CASCADE
 	);
