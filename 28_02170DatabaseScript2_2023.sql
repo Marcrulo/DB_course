@@ -32,23 +32,30 @@ FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish
 WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID 
 ORDER BY Dish_ID;
 
+### TEST ###
+SELECT Dish_Name, Quantity_Dish as num, Quantity_Dish*Price as subtotal
+FROM Order_Dish NATURAL JOIN Dish
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
 
+SELECT Drink_Name, Quantity_Drink as num, Quantity_Drink*Price as subtotal
+FROM Order_Drink NATURAL JOIN Drink
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
 
 
 # 7) SQL PROGRAMMING - Function: Customer bill
 DELIMITER //
-CREATE FUNCTION Total_Price(TabID INT, stTime TIMESTAMP) RETURNS INT
+CREATE FUNCTION Total_Price(TabID INT, ordTime TIMESTAMP) RETURNS INT
 BEGIN
 	DECLARE PriceSumDish INT;
     DECLARE PriceSumDrink INT;
     
-    SELECT SUM(Price) INTO PriceSumDish
-    FROM Customer NATURAL JOIN Order_Dish NATURAL JOIN Dish 
-    WHERE Table_ID = TabID and Start_Time = stTime and Order_Time = stTime;
+    SELECT SUM(Price*Quantity_Dish) INTO PriceSumDish
+    FROM Order_Dish NATURAL JOIN Dish 
+    WHERE Table_ID = TabID and Order_Time = ordTime;
     
-    SELECT SUM(Price) INTO PriceSumDrink
-	FROM Customer NATURAL JOIN Order_Drink NATURAL JOIN Drink
-	WHERE Table_ID = 1 and Start_Time = stTime and Order_Time = stTime;
+    SELECT SUM(Price*Quantity_Drink) INTO PriceSumDrink
+	FROM Order_Drink NATURAL JOIN Drink
+	WHERE Table_ID = TabID and Order_Time = ordTime;
 
     RETURN PriceSumDish + PriceSumDrink;
 END //
