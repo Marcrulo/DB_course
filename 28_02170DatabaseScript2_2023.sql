@@ -68,9 +68,6 @@ END //
 DELIMITER ;
 CALL Ingredients_From_Dish(10);
 
-SELECT Table_ID, Drink_Name, Drink_Type
-FROM Order_Drink NATURAL JOIN Drink;
-
 
 # 7) SQL PROGRAMMING - Trigger
 
