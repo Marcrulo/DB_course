@@ -102,18 +102,7 @@ END;
 # 8) SQL TABLE MODIFICATIONS: Remove pricy Dishes from menu
 DELETE FROM Dish WHERE Price > 75;
 
-
-SELECT coalesce(ODR.Table_ID, ODI.Table_ID), coalesce(ODR.Order_Time, ODI.Order_Time) , coalesce(ODR.Drink_ID, ODI.Dish_ID) as Item_ID
-FROM Order_Drink ODR
-JOIN Order_Dish ODI
-WHERE ODR.Table_ID = 1;
-
-
-SELECT *
-FROM Order_Drink ODR
-JOIN Order_Dish ODI
-WHERE ODR.Table_ID = 1;
-
+# View all items
 SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink
 FROM Order_Drink OD
 JOIN Drink D on OD.Drink_ID = D.Drink_ID
