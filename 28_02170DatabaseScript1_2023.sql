@@ -25,7 +25,7 @@ CREATE TABLE Drink
 	);
 
 CREATE TABLE Dish
-	(Dish_ID		INT AUTO_INCREMENT, 
+	(Dish_ID		INT NOT NULL, 
 	 Dish_Name		VARCHAR(20),
 	 Price			INT,
      Dish_Type		ENUM('Pizza','Burger','Sides'),
@@ -40,8 +40,8 @@ CREATE TABLE Ingredient
 	);
     
 CREATE TABLE Recipe
-	(Ingr_ID		INT,
-     Dish_ID		INT,
+	(Ingr_ID		INT ,
+     Dish_ID		INT ,
 	 PRIMARY KEY(Ingr_ID, Dish_ID),
      FOREIGN KEY(Ingr_ID) REFERENCES Ingredient(Ingr_ID) ON DELETE CASCADE,
 	 FOREIGN KEY(Dish_ID) REFERENCES Dish(Dish_ID) ON DELETE CASCADE
