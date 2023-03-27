@@ -130,5 +130,6 @@ SELECT * FROM Ingredient;
 
 # 8) SQL TABLE MODIFICATIONS: Remove pricy Dishes from menu
 DELETE FROM Dish WHERE Price > 75;
+SELECT * FROM Dish;
 
 SELECT Total_Price(1, '2023-03-25 16:14:46');
