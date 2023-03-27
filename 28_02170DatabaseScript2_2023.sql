@@ -106,6 +106,8 @@ BEGIN
 END //
 DELIMITER ;
 
+INSERT Recipe VALUES (14,0);
+
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
 SELECT * FROM Waiter;
 UPDATE Waiter SET Salary =
