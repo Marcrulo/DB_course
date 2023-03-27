@@ -103,7 +103,6 @@ END;
 DELETE FROM Dish WHERE Price > 75;
 
 # View all items
-SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink
 SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as 'Name', D.Price, D.Price*Quantity_Drink
 FROM Order_Drink OD
 JOIN Drink D on OD.Drink_ID = D.Drink_ID
