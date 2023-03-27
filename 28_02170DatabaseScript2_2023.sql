@@ -34,6 +34,17 @@ FROM Recipe NATURAL JOIN Ingredient NATURAL JOIN Dish
 WHERE Recipe.Ingr_ID = Ingredient.Ingr_ID
 ORDER BY Dish_ID;
 
+# 6) SQL DATA QUERIES: Get all orders from a specific customer
+(SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as Name, D.Price, D.Price*Quantity_Drink as Total_cost
+FROM Order_Drink OD
+JOIN Drink D on OD.Drink_ID = D.Drink_ID
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46')
+UNION
+(SELECT Table_ID, Order_Time, OD.Dish_ID as Item_ID, Quantity_Dish as Quantity, D.Dish_Name as Name, D.Price, D.Price*Quantity_Dish as Total_cost
+FROM Order_Dish as OD
+JOIN Dish D on OD.Dish_ID = D.Dish_ID
+WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46');
+
 ### TEST ###
 SELECT Dish_Name, Quantity_Dish as num, Quantity_Dish*Price as subtotal
 FROM Order_Dish NATURAL JOIN Dish
@@ -96,6 +107,7 @@ END //
 DELIMITER ;
 
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
+SELECT * FROM Waiter;
 UPDATE Waiter SET Salary =
 CASE
 WHEN Salary <= 25000
@@ -104,27 +116,19 @@ WHEN Salary <= 30000
 THEN Salary*1.02
 ELSE Salary*0.98
 END;
+SELECT * FROM Waiter;
 
 # 8) SQL TABLE MODIFICATIONS: Inflation
+SELECT * FROM Ingredient;
 UPDATE Ingredient SET Cost =
 CASE
 WHEN Cost <= 10
 THEN Cost*1.1
 ELSE Cost*1.08
 END;
+SELECT * FROM Ingredient;
 
 # 8) SQL TABLE MODIFICATIONS: Remove pricy Dishes from menu
 DELETE FROM Dish WHERE Price > 75;
-
-# View all items
-SELECT Table_ID, Order_Time, OD.Drink_ID as Item_ID, Quantity_Drink as Quantity, D.Drink_Name as 'Name', D.Price, D.Price*Quantity_Drink
-FROM Order_Drink OD
-JOIN Drink D on OD.Drink_ID = D.Drink_ID
-WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46'
-UNION
-SELECT Table_ID, Order_Time, OD.Dish_ID as Item_ID, Quantity_Dish as Quantity, D.Dish_Name as Name, D.Price, D.Price*Quantity_Dish
-FROM Order_Dish as OD
-JOIN Dish D on OD.Dish_ID = D.Dish_ID
-WHERE Table_ID = 1 AND Order_Time = '2023-03-25 16:14:46';
 
 SELECT Total_Price(1, '2023-03-25 16:14:46');
