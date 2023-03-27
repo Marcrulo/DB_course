@@ -1,3 +1,5 @@
+SET SQL_SAFE_UPDATES = 0;
+
 # 6) SQL DATA QUERIES: Basic select statements
 SELECT * FROM Customer;
 SELECT * FROM Dish;
@@ -14,14 +16,14 @@ SELECT Drink_Name, Price FROM Drink ORDER BY Price;
 
 # 6) SQL DATA QUERIES: Popularity of dishes
 SELECT Dish_ID, Dish_Name,
-	(SELECT SUM(Quantity)
+	(SELECT SUM(Quantity_Dish)
 	 FROM Order_Dish
 	 WHERE Order_Dish.Dish_ID = Dish.Dish_ID) as Quantity_Sold
 FROM Dish
 ORDER BY Quantity_Sold DESC;
 
 # 6) SQL DATA QUERIES: Drink type popularity
-SELECT Drink_Type,SUM(Quantity) as Quantity_Sold
+SELECT Drink_Type,SUM(Quantity_Drink) as Quantity_Sold
 FROM Order_Drink  NATURAL JOIN Drink
 GROUP BY Drink_Type
 ORDER BY Quantity_Sold DESC;
@@ -78,8 +80,20 @@ CALL Ingredients_From_Dish(10);
 
 
 # 7) SQL PROGRAMMING - Trigger
-
-
+DELIMITER //
+CREATE TRIGGER Update_Dish_Cost
+AFTER INSERT ON Recipe
+FOR EACH ROW
+BEGIN
+    UPDATE Dish
+    SET Price = (
+        SELECT 1.2 * SUM(Cost)
+        FROM Ingredient
+        WHERE Ingr_ID IN (SELECT Ingr_ID FROM Recipe WHERE Dish_ID = NEW.Dish_ID)
+    )
+    WHERE Dish_ID = NEW.Dish_ID;
+END //
+DELIMITER ;
 
 # 8) SQL TABLE MODIFICATIONS: Pay raise for waiters
 UPDATE Waiter SET Salary =
